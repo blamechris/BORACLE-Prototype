@@ -8,6 +8,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.boracleprototype.databinding.ActivityMainBinding
+import android.widget.Button
+import android.widget.Toast
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +21,18 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        // Find the button by its ID
+        val syncButton: Button = findViewById(R.id.syncButton)
+
+        // Set an onClickListener for the button
+        syncButton.setOnClickListener {
+            // TODO: Add the logic to perform the sync operation here
+
+            // just showing basic message for now
+            Toast.makeText(this, "Sync in progress...", Toast.LENGTH_SHORT).show()
+        }
 
         val navView: BottomNavigationView = binding.navView
 
