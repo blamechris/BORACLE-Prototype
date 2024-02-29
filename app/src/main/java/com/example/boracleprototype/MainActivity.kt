@@ -10,7 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.boracleprototype.databinding.ActivityMainBinding
 import android.widget.Button
 import android.widget.Toast
-
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
 
