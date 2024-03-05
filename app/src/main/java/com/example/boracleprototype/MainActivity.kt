@@ -15,12 +15,16 @@ import com.google.firebase.firestore.FirebaseFirestore
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var firestore: FirebaseFirestore // Instance of Firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // We need to init Firestore
+        firestore = FirebaseFirestore.getInstance()
 
 
         // Find the button by its ID
@@ -29,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         // Set an onClickListener for the button
         syncButton.setOnClickListener {
             // TODO: Add the logic to perform the sync operation here
+            writeDummyData() // Function to write out dummy data in case I can't figure out mock data
 
             // just showing basic message for now
             Toast.makeText(this, "Sync in progress...", Toast.LENGTH_SHORT).show()
@@ -46,5 +51,23 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    private fun writeDummyData() {
+        val dummyData = hashMapOf(
+            "field1" to "value1",
+            "field2" to "value2",
+            "field3" to 123
+        )
+
+        // Add a new document with a generated ID to a collection called 'testCollection'
+        firestore.collection("testCollection")
+            .add(dummyData)
+            .addOnSuccessListener { documentReference ->
+                Toast.makeText(this, "Dummy data added with ID: ${documentReference.id}", Toast.LENGTH_LONG).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error adding dummy data: ${e.message}", Toast.LENGTH_LONG).show()
+            }
     }
 }
