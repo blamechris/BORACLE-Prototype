@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "363874758171",
+    "project_id": "boracle-app-proto",
+    "storage_bucket": "boracle-app-proto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363874758171:android:f9b01d3fd6f28b38cfd2be",
+        "android_client_info": {
+          "package_name": "com.example.boracleprototype"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYvWqVCuO1xgDkkGdBhrbWoB8-AxWxpsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
